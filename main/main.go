@@ -1,6 +1,9 @@
 package main
 
-import "hackerrank-practise/arrays"
+import (
+	//"hackerrank-practise/arrays"
+	"hackerrank-practise/maps"
+)
 
 func main() {
 	//result := arrays.Gcd(13, 3)
@@ -23,11 +26,11 @@ func main() {
 		{4, 4, 882},
 	}*/
 
-	a := [][]int32{
+	/*a := [][]int32{
 		{1, 2, 100},
 		{2, 5, 100},
 		{3, 4, 100},
-	}
+	}*/
 
 	/*a := [][]int32{
 		{2, 6, 8},
@@ -36,7 +39,18 @@ func main() {
 		{5, 9, 15},
 	}*/
 
-	arrays.ArrayManipulation(4, a)
+	//arrays.ArrayManipulation(4, a)
+
+	//mag := []string{"ive", "got", "a", "got", "lovely", "bunch", "of", "coconuts"}
+	//notes:= []string{"ive", "got", "some", "coconuts"}
+
+	//mag := []string{"give", "me", "one", "grand", "today", "night"}
+	//notes:= []string{"give", "one", "grand", "today"}
+
+	mag := []string{"two", "times", "three", "is", "not", "four"}
+	notes := []string{"two", "times", "IS", "four"}
+
+	maps.CheckMagazine(mag, notes)
 }
 
 /*
