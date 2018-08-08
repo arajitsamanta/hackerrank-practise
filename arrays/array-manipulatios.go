@@ -1,9 +1,5 @@
 package arrays
 
-import (
-	"fmt"
-)
-
 //https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 func ArrayManipulation(n int32, queries [][]int32) int64 {
 	var max, sum int64
@@ -19,7 +15,6 @@ func ArrayManipulation(n int32, queries [][]int32) int64 {
 		if right <= n {
 			arr[right] -= int64(col[2])
 		}
-		fmt.Printf("\n %v", arr)
 	}
 
 	for j = 1; j <= n; j++ {
