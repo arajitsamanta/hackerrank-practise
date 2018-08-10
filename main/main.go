@@ -47,10 +47,25 @@ func main() {
 	//mag := []string{"give", "me", "one", "grand", "today", "night"}
 	//notes:= []string{"give", "one", "grand", "today"}
 
-	mag := []string{"two", "times", "three", "is", "not", "four"}
-	notes := []string{"two", "times", "IS", "four"}
+	//mag := []string{"two", "times", "three", "is", "not", "four"}
+	//notes := []string{"two", "times", "IS", "four"}
 
-	maps.CheckMagazine(mag, notes)
+	//maps.CheckMagazine(mag, notes)
+
+	//maps.TwoString("hello", "world")
+
+	//maps.FindAnagrams("mom")
+
+	maps.FindAnagrams("abba")
+
+	//maps.FindAnagrams("abcd")
+
+	//maps.FindAnagrams("ifailuhkqq")
+
+	//maps.FindAnagrams("kkkk")
+
+	//s := "abad"
+	//fmt.Println(SortStringByCharacter(s))
 }
 
 /*
