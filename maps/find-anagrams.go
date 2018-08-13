@@ -1,7 +1,6 @@
 package maps
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -52,14 +51,8 @@ func FindAnagrams(s string) int32 {
 			wordSlice[sliceIdx] = chars
 			sliceIdx++
 		}
-
-		fmt.Printf("\nslice contents.. %v", wordSlice)
 		anag = anag + countAnagrams(wordSlice)
-		//fmt.Printf("\n anag:%d anagEach:%d", anag, anaEachItr)
-
 		charCount++
-
 	}
-
 	return anag
 }
