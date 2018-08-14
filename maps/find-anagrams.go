@@ -33,6 +33,17 @@ func countAnagrams(words []string) int32 {
 	return count
 }
 
+func hash(freq []int) int64 {
+
+	var ret, t int64
+	t = 1
+	for i := 0; i < 26; i++ {
+		ret += t * int64(freq[i])
+		t = t * 1000003
+	}
+	return ret
+}
+
 //https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
 func FindAnagrams(s string) int32 {
 	var anag int32
@@ -55,4 +66,26 @@ func FindAnagrams(s string) int32 {
 		charCount++
 	}
 	return anag
+}
+
+func FindAnagramFast(s string) int32 {
+
+	var count int
+	freqMap := make(map[int64]int)
+	length := len(s)
+
+	for i := 0; i < length; i++ {
+
+		freq := make([]int, 26)
+		for j := i; j < length; j++ {
+			freq[s[j]-'a']++
+			freqMap[hash(freq)]++
+		}
+	}
+
+	for _, v := range freqMap {
+		count = count + (v * (v - 1) / 2)
+	}
+
+	return int32(count)
 }

@@ -15,7 +15,7 @@ func TestFindAnagrams(t *testing.T) {
 		{"ifailuhkqq", 3},
 	}
 	for _, c := range cases {
-		got := FindAnagrams(c.in)
+		got := FindAnagramFast(c.in)
 		if got != c.want {
 			t.Errorf("Got %d, want %d", got, c.want)
 		}
