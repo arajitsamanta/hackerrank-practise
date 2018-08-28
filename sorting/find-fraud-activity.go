@@ -2,6 +2,7 @@ package sorting
 
 // https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
 //Below approach use counting sort and prefix sum array approach to find median of an array.
+//O(n*k) - n: Size of input array, k: max of array
 func ActivityNotifications(expenditure []int32, d int32) int32 {
 	var i, n, median, count int32
 	n = int32(len(expenditure))

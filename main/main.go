@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"hackerrank-practise/maps"
+	"hackerrank-practise/sorting"
 	"io"
 	"log"
 	"os"
@@ -104,9 +104,9 @@ import (
 }*/
 
 func main() {
-	/*reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+	//reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
-	//file, err := os.Open("c:/Temp/input12.txt")
+	file, err := os.Open("c:/Temp/input2.txt")
 
 	if err != nil {
 		log.Fatal(err)
@@ -116,97 +116,100 @@ func main() {
 
 	reader := bufio.NewReaderSize(file, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+	//stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	//checkError(err)
 
-	defer stdout.Close()
+	//defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	//writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
-	checkError(err)
-	q := int32(1000000)
+	/*qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+	checkError(err)*/
 
-	var queries [][]int32
-	for i := 0; i < int(q); i++ {
-		queriesRowTemp := strings.Split(strings.TrimRight(readLine(reader), " \t\r\n"), " ")
+	expenditureTemp := strings.Split(readLine(reader), " ")
+	var expenditure []int32
 
-		var queriesRow []int32
-		for _, queriesRowItem := range queriesRowTemp {
-			queriesItemTemp, err := strconv.ParseInt(queriesRowItem, 10, 64)
-			checkError(err)
-			queriesItem := int32(queriesItemTemp)
-			queriesRow = append(queriesRow, queriesItem)
-		}
+	n := int32(200000)
 
-		if len(queriesRow) != 2 {
-			panic("Bad input")
-		}
-
-		queries = append(queries, queriesRow)
-	}
-
-	ans := maps.FreqQuery(queries)
-
-	for i, ansItem := range ans {
-		fmt.Fprintf(writer, "%d", ansItem)
-
-		if i != len(ans)-1 {
-			fmt.Fprintf(writer, "\n")
-		}
-	}
-
-	fmt.Fprintf(writer, "\n")
-
-	writer.Flush()*/
-
-	total := 0 // count lines
-	//begin := time.Now()
-
-	f, err := os.OpenFile("c:/Temp/input12.txt", os.O_RDONLY, os.ModePerm)
-	if err != nil {
-		log.Fatalf("open file error: %v", err)
-	}
-	defer f.Close()
-
-	sc := bufio.NewScanner(f)
-	var queries [][]int32
-	for sc.Scan() {
-		row := sc.Text()
-		//fmt.Println(row)
-
-		queriesRowTemp := strings.Split(strings.TrimRight(row, " \t\r\n"), " ")
-
-		var queriesRow []int32
-		for _, queriesRowItem := range queriesRowTemp {
-			queriesItemTemp, err := strconv.ParseInt(queriesRowItem, 10, 64)
-			checkError(err)
-			queriesItem := int32(queriesItemTemp)
-			queriesRow = append(queriesRow, queriesItem)
-		}
-
-		if len(queriesRow) != 2 {
-			panic("Bad input")
-		}
-
-		queries = append(queries, queriesRow)
-
-		total++
-	}
-
-	if err := sc.Err(); err != nil {
-		log.Fatalf("scan file error: %v", err)
+	//var queries [][]int32
+	for i := 0; i < int(n); i++ {
+		expenditureItemTemp, err := strconv.ParseInt(expenditureTemp[i], 10, 64)
+		checkError(err)
+		expenditureItem := int32(expenditureItemTemp)
+		expenditure = append(expenditure, expenditureItem)
 	}
 
 	begin := time.Now()
-	ans := maps.FreqQuery(queries)
+
+	input := []int32{2, 3, 4, 2, 3, 6, 8, 4, 5}
+	result := sorting.ActivityNotifications(input, 5)
+
+	log.Printf("\nFast: time_used: %v", time.Since(begin).Seconds())
+	fmt.Printf("\nresult: %d", result)
+
+	/*
+		ans := maps.FreqQuery(queries)
+
+		for i, ansItem := range ans {
+			fmt.Fprintf(writer, "%d", ansItem)
+
+			if i != len(ans)-1 {
+				fmt.Fprintf(writer, "\n")
+			}
+		}
+
+		fmt.Fprintf(writer, "\n")
+
+		writer.Flush()*/
+
+	/*
+		f, err := os.OpenFile("c:/Temp/input2.txt", os.O_RDONLY, os.ModePerm)
+		if err != nil {
+			log.Fatalf("open file error: %v", err)
+		}
+		defer f.Close()
+
+		sc := bufio.NewScanner(f)
+		var queries [][]int32
+		var expenditure []int32
+		for sc.Scan() {
+			row := sc.Text()
+			expenditureItemTemp, err := strconv.ParseInt(row, 10, 64)
+			checkError(err)
+			expenditureItem := int32(expenditureItemTemp)
+			expenditure = append(expenditure, expenditureItem)
+
+			/*queriesRowTemp := strings.Split(strings.TrimRight(row, " \t\r\n"), " ")
+
+			var queriesRow []int32
+			for _, queriesRowItem := range queriesRowTemp {
+				queriesItemTemp, err := strconv.ParseInt(queriesRowItem, 10, 64)
+				checkError(err)
+				queriesItem := int32(queriesItemTemp)
+				queriesRow = append(queriesRow, queriesItem)
+			}
+
+			if len(queriesRow) != 2 {
+				panic("Bad input")
+			}
+
+			queries = append(queries, queriesRow)
+
+			total++
+		}
+
+		if err := sc.Err(); err != nil {
+			log.Fatalf("scan file error: %v", err)
+		}*/
+
+	//ans := maps.FreqQuery(queries)
 
 	/*for i, ansItem := range ans {
 		fmt.Printf("i %d, item %d", i, ansItem)
 		fmt.Println()
 	}*/
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	/*stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	checkError(err)
 
 	defer stdout.Close()
@@ -225,9 +228,12 @@ func main() {
 
 	writer.Flush()
 
-	log.Printf("\ntime_used: %v", time.Since(begin).Seconds())
+	log.Printf("\ntime_used: %v", time.Since(begin).Seconds())*/
 
 	//scanFile()
+	//a := []int32{2, 3, 4, 2, 3, 6, 8, 4, 5}
+	//sorting.CountSwaps(a)
+	//
 }
 
 func readLine(reader *bufio.Reader) string {
@@ -245,11 +251,11 @@ func checkError(err error) {
 	}
 }
 
-func scanFile() error {
+func scanFileLineByLine() error {
 	total := 0 // count lines
 	begin := time.Now()
 
-	f, err := os.OpenFile("c:/Temp/input12.txt", os.O_RDONLY, os.ModePerm)
+	f, err := os.OpenFile("c:/Temp/input2.txt", os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatalf("open file error: %v", err)
 		return err
