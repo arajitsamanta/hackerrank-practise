@@ -1,4 +1,4 @@
-package strings
+package stringz
 
 func abs(x int32) int32 {
 	if x < 0 {

@@ -3,11 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"hackerrank-practise/sorting"
+	"hackerrank-practise/stringz"
 	"io"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -106,7 +105,7 @@ import (
 func main() {
 	//reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
-	file, err := os.Open("c:/Temp/input2.txt")
+	/*file, err := os.Open("c:/Temp/input2.txt")
 
 	if err != nil {
 		log.Fatal(err)
@@ -114,7 +113,7 @@ func main() {
 
 	defer file.Close()
 
-	reader := bufio.NewReaderSize(file, 16*1024*1024)
+	reader := bufio.NewReaderSize(file, 16*1024*1024)*/
 
 	//stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	//checkError(err)
@@ -125,27 +124,26 @@ func main() {
 
 	/*qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 	checkError(err)*/
+	/*
+		expenditureTemp := strings.Split(readLine(reader), " ")
+		var expenditure []int32
 
-	expenditureTemp := strings.Split(readLine(reader), " ")
-	var expenditure []int32
+		n := int32(200000)
 
-	n := int32(200000)
+		for i := 0; i < int(n); i++ {
+			expenditureItemTemp, err := strconv.ParseInt(expenditureTemp[i], 10, 64)
+			checkError(err)
+			expenditureItem := int32(expenditureItemTemp)
+			expenditure = append(expenditure, expenditureItem)
+		}
 
-	//var queries [][]int32
-	for i := 0; i < int(n); i++ {
-		expenditureItemTemp, err := strconv.ParseInt(expenditureTemp[i], 10, 64)
-		checkError(err)
-		expenditureItem := int32(expenditureItemTemp)
-		expenditure = append(expenditure, expenditureItem)
-	}
+		begin := time.Now()
 
-	begin := time.Now()
+		input := []int32{2, 3, 4, 2, 3, 6, 8, 4, 5}
+		result := sorting.ActivityNotifications(input, 5)
 
-	input := []int32{2, 3, 4, 2, 3, 6, 8, 4, 5}
-	result := sorting.ActivityNotifications(input, 5)
-
-	log.Printf("\nFast: time_used: %v", time.Since(begin).Seconds())
-	fmt.Printf("\nresult: %d", result)
+		log.Printf("\nFast: time_used: %v", time.Since(begin).Seconds())
+		fmt.Printf("\nresult: %d", result)*/
 
 	/*
 		ans := maps.FreqQuery(queries)
@@ -234,6 +232,16 @@ func main() {
 	//a := []int32{2, 3, 4, 2, 3, 6, 8, 4, 5}
 	//sorting.CountSwaps(a)
 	//
+
+	/*input := []int32{7, 5, 3, 1}
+	begin := time.Now()
+	result := sorting.CountInversions(input)
+	fmt.Printf("\ntime_used: %v", time.Since(begin).Seconds())
+	fmt.Printf("\nresult: %d", result)*/
+	//begin := time.Now()
+	result := stringz.SubstrCount(8, "mnonopoo")
+	//fmt.Printf("\ntime_used: %v", time.Since(begin).Seconds())
+	fmt.Printf("\ncount: %d", result)
 }
 
 func readLine(reader *bufio.Reader) string {

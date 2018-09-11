@@ -1,4 +1,4 @@
-package strings
+package stringz
 
 import (
 	"testing"
