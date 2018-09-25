@@ -12,8 +12,8 @@ func maxMin(k int32, arr []int32) int32 {
 
 	var (
 		i, n, diff int32
-		temp       []int32
-		minimum    int32 = MaxInt32
+		//temp       []int32
+		minimum int32 = MaxInt32
 	)
 
 	//Sort the array first,  O(n*log(n))
@@ -23,15 +23,10 @@ func maxMin(k int32, arr []int32) int32 {
 
 	n = int32(len(arr))
 
-	//iterate over the sorted array and  slice it up to size k and check min/max of each slice
+	//iterate over the sorted array upto n-k and check diff(max-min) of each arr of size k
 	//O(n)
-	for i = 0; i < n; i++ {
-		//check dif(max-min) only when slize size is k
-		if n-i >= k {
-			temp = arr[i : i+k]
-			diff = temp[k-1] - temp[0]
-		}
-
+	for i = 0; i < n-k; i++ {
+		diff = arr[i+k-1] - arr[i]
 		if diff < minimum {
 			minimum = diff
 		}
