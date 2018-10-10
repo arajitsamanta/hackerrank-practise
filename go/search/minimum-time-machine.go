@@ -15,7 +15,7 @@ func minTimeBruteForce(machines []int64, goal int64) int64 {
 	produced = 0
 	dayCount = 1
 
-	//O(k*n) , where k is the goal and n os size of machines
+	//O(k*n) , where k is the goal and n is the size of machines
 	for produced < goal {
 		noOfProducesPerDay := 0
 		for k, v := range machineMap {
