@@ -16,7 +16,7 @@ func TestMinimumTimeRequired(t *testing.T) {
 		{[]int64{4, 5, 6}, 12, 20},
 	}
 	for _, c := range cases {
-		got := minTimeBruteForce(c.machines, c.goal)
+		got := MinTimeBruteForce(c.machines, c.goal)
 		if got != c.want {
 			t.Errorf("Got %d, want %d", got, c.want)
 		}
