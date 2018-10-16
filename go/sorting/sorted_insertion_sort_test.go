@@ -13,6 +13,5 @@ func TestSortedInsertionSort(t *testing.T) {
 	}
 	for _, c := range cases {
 		sortedInsertionSort(c.n, c.in)
-		t.Errorf("failed")
 	}
 }

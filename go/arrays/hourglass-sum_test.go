@@ -19,7 +19,7 @@ func TestHourglassSum(t *testing.T) {
 		in   [][]int32
 		want int32
 	}{
-		{a, 18},
+		{a, 19},
 	}
 	for _, c := range cases {
 		got := hourglassSum(c.in)
