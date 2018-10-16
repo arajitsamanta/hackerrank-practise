@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"hackerrank-practise/stringz"
+	"hackerrank-practise/go/stringz"
 	"io"
 	"log"
 	"os"

@@ -12,7 +12,7 @@ func TestInsertionSort(t *testing.T) {
 		want []int32
 	}{
 		{
-			6, []int32{5, 2, 4, 6, 1, 3}, []int32{1, 2, 3, 4, 5, 7},
+			6, []int32{5, 2, 4, 6, 1, 3}, []int32{1, 2, 3, 4, 7},
 		},
 	}
 	for _, c := range cases {
