@@ -53,7 +53,7 @@ struct node *insert(struct node *root, int data)
     else
     {
         struct node *cur;
-        
+
         //Recursivley search for insert point on left subtree if data <= node->data
         if (data <= root->data)
         {
@@ -62,7 +62,7 @@ struct node *insert(struct node *root, int data)
         }
         else
         {
-             //Recursivley search for insert point on right subtree if data > node->data
+            //Recursivley search for insert point on right subtree if data > node->data
             cur = insert(root->right, data);
             root->right = cur;
         }
@@ -102,17 +102,15 @@ void inorder(struct node *root)
 }
 
 //Recursive inorder traversal which return the output as an array
-void inorderArray(struct node *root, int arr[], int* i)
+void inorderArray(struct node *root, int arr[], int *i)
 {
-    printf("\ni :%d %d",*i, i);
-
     if (root == NULL){
-        arr[*i++]='$';
-        return;
+        arr[(*i)++]='$';
+         return;
     }
 
     inorderArray(root->left, arr, i);
-    arr[*i++]=root->data;
+    arr[(*i)++] = root->data;
     inorderArray(root->right, arr, i);
 }
 
@@ -128,6 +126,18 @@ void preorder(struct node *root)
     inorder(root->right);
 }
 
+//Preorder traversal that returns an array.
+void preorderArray(struct node *root, int arr[], int *i)
+{
+
+    if (root == NULL)
+        return;
+
+    arr[(*i)++] = root->data;
+    preorderArray(root->left,arr,i);
+    preorderArray(root->right,arr,i);
+}
+
 //Recurive postorder traversal
 void postorder(struct node *root)
 {
@@ -135,9 +145,21 @@ void postorder(struct node *root)
     if (root == NULL)
         return;
 
-    inorder(root->left);
-    inorder(root->right);
+    postorder(root->left);
+    postorder(root->right);
     printf("%d ", root->data);
+}
+
+//Postorder traversal that returns an array.
+void postorderArray(struct node *root,int arr[],int *i)
+{
+
+    if (root == NULL)
+        return;
+
+    postorderArray(root->left,arr,i);
+    postorderArray(root->right,arr,i);
+    arr[(*i)++]=root->data;
 }
 
 //Populate abinary seacrh tree from an array
@@ -154,6 +176,14 @@ struct node *populateTree(int *arr, int n)
         root = insert(root, arr[i]);
     }
     return root;
+}
+
+void printArray(int arr[], int n)
+{
+    for (int j = 0; j < n; j++)
+    {
+        printf("%d ", arr[j]);
+    }
 }
 
 int main()
@@ -196,19 +226,30 @@ int main()
     */
     printf("\nInorder Traversal: ");
     inorder(root);
-    int inorderArr[7];
-    int i=0;
-    inorderArray(root,inorderArr,&i);
-    
+
+    //Inorder travel tha  //In order travel that returns an array insted of printing.
+   /* int inorderArr[n];
+    int i = 0;
+    inorderArray(root, inorderArr, &i);
     n = sizeof(inorderArr) / sizeof(inorderArr[0]);
-    printf("\nInorder Traversal arr: %d", n);
-    printf("\n");
-    for(int j=0;j<n;j++){
-        printf("%d ",inorderArr[i]);
-    }
+    printf("\nInorder Traversal[]: ");
+    printArray(inorderArr,n); insted of printing.
+    int inorderArr[n*2];  //In order travel that returns an array insted of printing.
+   /* int inorderArr[n];
+    int i = 0;
+    inorderArray(root, inorderArr, &i);
+    n = sizeof(inorderArr) / sizeof(inorderArr[0]);
+    printf("\nInorder Traversal[]: ");
+    printArray(inorderArr,n);
+    int i = 0;
+    inorderArray(root, inorderArr, &i);
+    n = sizeof(inorderArr) / sizeof(inorderArr[0]);
+    printf("\nInorder Traversal[]: ");
+    printArray(inorderArr,n);
 
     printf("\nPreorder Traversal: ");
     preorder(root);
+
     printf("\nPostorder Traversal: ");
     postorder(root);
 
