@@ -191,22 +191,6 @@ int main()
 
     struct node *root = NULL;
 
-    /*
-    int t, n;
-    int data;
-
-    scanf("%d", &t);
-
-    while (t-- > 0)
-    {
-        scanf("%d", &n);
-        for (int i = 0; i < n; i++)
-        {
-            scanf("%d", &data);
-            root = insert(root, data);
-        }
-    }*/
-
     int TESTCASE_1[] = {10, 4, 6, 3, 5, 7};
     int n = sizeof(TESTCASE_1) / sizeof(TESTCASE_1[0]);
     root = populateTree(TESTCASE_1, n);
@@ -235,7 +219,7 @@ int main()
     printf("\nInorder Traversal[]: ");
     printArray(inorderArr,n); insted of printing.
     int inorderArr[n*2];  //In order travel that returns an array insted of printing.
-   /* int inorderArr[n];
+    int inorderArr[n];
     int i = 0;
     inorderArray(root, inorderArr, &i);
     n = sizeof(inorderArr) / sizeof(inorderArr[0]);
@@ -251,7 +235,7 @@ int main()
     preorder(root);
 
     printf("\nPostorder Traversal: ");
-    postorder(root);
+    postorder(root);*/
 
     return 0;
 }
