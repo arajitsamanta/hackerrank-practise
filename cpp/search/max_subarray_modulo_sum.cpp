@@ -28,15 +28,12 @@ long maximumSum(vector<long> a, long m)
 
 int main(int argc, char const *argv[])
 {
-  int arr[] = {3, 3, 9, 9, 5};
-  int n = sizeof(arr) / sizeof(arr[0]);
+  long arr[] = {3, 3, 9, 9, 5};
   int m = 7;
-  cout << maxSubarray(arr, n, m) << endl;
 
   vector<long> a(5);
-  for (int i = 0; i < n; i++)
+  for (int i = 0; i < 5; i++)
   {
-    //long a_item =arr[i];
     a[i] = arr[i];
   }
 
