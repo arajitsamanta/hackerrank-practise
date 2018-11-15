@@ -87,7 +87,7 @@ char *readline()
     while (true)
     {
         char *cursor = data + data_length;
-        char *line = fgets(cursor, alloc_length - data_length, fptr);
+        char *line = fgets(cursor, alloc_length - data_length, stdin);
 
         if (!line)
         {
