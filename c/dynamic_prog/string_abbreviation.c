@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+char *readline();
+int get_length(char*);
+
+
 // https://www.hackerrank.com/challenges/abbr/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dynamic-programming
 // Complexity: O(n^2)
 char *abbreviation(char *a, char *b)
@@ -50,17 +54,15 @@ char *abbreviation(char *a, char *b)
 int main()
 {
     FILE *fptr = fopen("out.txt", "w");
-    FILE *infptr = fopen("in.txt", "r");
 
     char *q_endptr;
-    char *q_str = readline(infptr);
+    char *q_str = readline();
     int q = strtol(q_str, &q_endptr, 10);
 
     if (q_endptr == q_str || *q_endptr != '\0')
     {
         exit(EXIT_FAILURE);
     }
-    int q = 2;
 
     for (int q_itr = 0; q_itr < q; q_itr++)
     {
@@ -120,4 +122,13 @@ char *readline()
     data = realloc(data, data_length);
 
     return data;
+}
+
+int get_length(char *arr){
+    int len=0;
+    while(*arr != '\0'){
+        len++;
+        arr++;
+    }
+    return len;
 }
