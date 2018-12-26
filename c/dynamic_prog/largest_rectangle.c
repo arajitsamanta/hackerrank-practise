@@ -11,7 +11,7 @@
 char* readline();
 char** split_string(char*);
 
-// Complete the largestRectangle function below.
+// https://www.hackerrank.com/challenges/largest-rectangle/problem
 long largestRectangleBruteForce(int h_count, int* h) {
 
     int i,j,height,width;
