@@ -11,22 +11,38 @@
 char* readline();
 char** split_string(char*);
 
-// https://www.hackerrank.com/challenges/largest-rectangle/problem
-long largestRectangleBruteForce(int h_count, int* h) {
+int min(int a,int b){
+    return a < b ? a : b;
+}
 
-    int i,j,height,width;
-    long max_area=INT_MIN,area=0;
-    //3 , 2 ,3
-    for(i=0;i<h_count;i++){
-        height=h[i];
-        for(j=i;j>=0;j--){
-            width=j-i+1;
-            area=height * width;
-            max_area = area > max_area ? area  : max_area; 
+long max(long a,long b){
+    return a > b ? a : b;
+}
+
+// https://www.hackerrank.com/challenges/largest-rectangle/problem
+// Complexity: O(n^2)
+long largestRectangle_BruteForce(int h_count, int *h)
+{
+
+    int i, j, height = 0, width;
+    long max_area = INT_MIN;
+
+    for (i = 0; i < h_count; i++)
+    {
+        //Get current height
+        height = h[i];
+        for (j = i-1; j >= 0; j--)
+        {   
+            width = (i - j + 1);  
+
+            //Height should be the minimum between i and j           
+            height = min(h[j],height);
+
+            //Calculate area
+            max_area = max(max_area,height * width);
         }
     }
     return max_area;
-
 }
 
 int main()
@@ -55,11 +71,11 @@ int main()
 
     int h_count = n;
 
-    long result = largestRectangle(h_count, h);
+    long result = largestRectangle_BruteForce(h_count, h);
 
-    fprintf(fptr, "%ld\n", result);
+    fprintf(stdout, "%ld\n", result);
 
-    fclose(fptr);
+    //fclose(fptr);
 
     return 0;
 }
