@@ -141,6 +141,10 @@ public class GEDigitalExcercise {
   }
 
   /**
+   * Runtime Complexty Analysis
+   * Time: Read the file -> O(n) + Sort the list -> O(n*log(n)) + Calculate the result -> O(n) = O(n*log(n))
+   * Space: O(n),to read file content and load it to a list
+   * 
    * Generate aggregate calculation report.
    */
   public static void generateAggregateReport() {
@@ -154,7 +158,8 @@ public class GEDigitalExcercise {
 
     if (lineCount != 0) {
 
-      // Sort the session info in natural order of build start time
+      // Sortining is performed here with an assumption that input data wont be of any particular order.If we are sure input data will be
+      // ascending or descending order we dont need to sort it,
       Collections.sort(sessionList, new Comparator<Session>() {
         @Override
         public int compare(Session s1, Session s2) {
@@ -301,11 +306,11 @@ public class GEDigitalExcercise {
   }
 
   public static void main(String[] args) {
-    System.out.println("================================= Aggregate Calculation =============");
+    System.out.println("================================= Aggregate Calculation, O(n*log(n) solution =============");
     generateAggregateReport();
     System.out.println("================================= End ==============================");
 
-    System.out.println("================================= Flakiness Calculation =============");
+    System.out.println("================================= Flakiness Calculation, O(n) solution =============");
     generateFlakinessReport();
     System.out.println("================================= End ==============================");
   }
